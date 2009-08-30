@@ -71,6 +71,10 @@ class Mail
     data[config[:cc_field]] || config[:cc] || ""
   end
   
+  def bcc
+    data[config[:bcc_field]] || config[:bcc] || ""
+  end
+  
   def send
     return false if not valid?
 
@@ -97,6 +101,7 @@ The following information was posted:
       :plain_body => plain_body,
       :html_body => html_body,
       :cc => cc,
+      :bcc => bcc,
       :headers => headers
     )
     @sent = true
